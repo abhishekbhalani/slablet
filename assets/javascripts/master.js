@@ -38,15 +38,15 @@ var SLAB = (function($, window, undefined) {
 			placeholder: function() {
 				var placeholder_supported = 'placeholder' in document.createElement('input');
 
-				if (placeholder_supported || !$('*[placeholder]').length) {
+				if (placeholder_supported || !$(':input[placeholder]').length) {
 					return;
 				}
 
-				$('*[placeholder]').each(function() {
+				$(':input[placeholder]').each(function() {
 					var el = $(this);
 					var text = el.attr('placeholder');
 
-					if (!el.val()) {
+					if (!el.val() || el.val() === text) {
 						el.val(text).addClass('placeholder_text');
 					}
 
@@ -64,11 +64,11 @@ var SLAB = (function($, window, undefined) {
 			autofocus: function() {
 				var autofocus_supported = 'autofocus' in document.createElement('input');
 
-				if (autofocus_supported || !$('*[autofocus]').length) {
+				if (autofocus_supported || !$(':input[autofocus]').length) {
 					return;
 				}
 
-				$('*[autofocus]:first').focus().select();
+				$(':input[autofocus]:first').focus().select();
 			},
 			rotation: function() {
 				function adjust_angle() {
