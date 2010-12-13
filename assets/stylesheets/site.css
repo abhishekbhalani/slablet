@@ -17,7 +17,6 @@ body {
 	background: #000 url(../images/ui/nav_arrow.png) no-repeat -99999px -99999px;
 	color: #000;
 	cursor: default;
-	-webkit-user-select: none;
 }
 
 a {
